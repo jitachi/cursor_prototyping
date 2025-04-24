@@ -1,6 +1,25 @@
 /* CSS Reset */
+:root {
+  --mac-bg: #666666;
+  --mac-window: #ffffff;
+  --mac-border: #000000;
+  --mac-text: #000000;
+  --mac-title-bg: #ffffff;
+  --mac-border-thick: 2px solid var(--mac-border);
+  --window-radius: 0;
+  --chicago-font: "Chicago", "Pixelated MS Sans Serif", "Monaco", monospace;
+
+  /* Background animation colors - more noticeable but still subtle */
+  --bg-color-1: #4a4a4a;
+  --bg-color-2: #3d4a5c;
+  --bg-color-3: #4a5a6a;
+  --bg-color-4: #3d4a5c;
+}
+
 /* 1. Use a more-intuitive box-sizing model */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -15,22 +34,56 @@ body {
   /* 4. Improve text rendering */
   -webkit-font-smoothing: antialiased;
   /* 5. Set default font */
-  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  font-family: var(--chicago-font);
+  /* Add Mac OS classic background */
+  background-color: var(--bg-color-1);
+  animation: cycleBackground 20s ease-in-out infinite;
+}
+
+@keyframes cycleBackground {
+  0% {
+    background-color: var(--bg-color-1);
+  }
+  33% {
+    background-color: var(--bg-color-2);
+  }
+  50% {
+    background-color: var(--bg-color-3);
+  }
+  66% {
+    background-color: var(--bg-color-4);
+  }
+  100% {
+    background-color: var(--bg-color-1);
+  }
 }
 
 /* 5. Improve media defaults */
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
 }
 
 /* 6. Inherit fonts for form controls */
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
 
 /* 7. Avoid text overflows */
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   overflow-wrap: break-word;
 }
 
@@ -38,13 +91,19 @@ p, h1, h2, h3, h4, h5, h6 {
 p {
   text-wrap: pretty;
 }
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   text-wrap: balance;
 }
 
 /*
   9. Create a root stacking context
 */
-#root, #__next {
+#root,
+#__next {
   isolation: isolate;
-} 
+}
