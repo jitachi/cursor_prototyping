@@ -37,7 +37,7 @@ export default function Home() {
   const [nextDogId, setNextDogId] = useState(0);
 
   const containerRef = useRef<HTMLDivElement>(null);
-  const animationFrameRef = useRef<number>();
+  const animationFrameRef = useRef<number | undefined>(undefined);
   const speedRef = useRef(INITIAL_SPEED);
   const positionRef = useRef({ x: 0, y: 0 });
   const velocityRef = useRef({ x: INITIAL_SPEED, y: INITIAL_SPEED });
